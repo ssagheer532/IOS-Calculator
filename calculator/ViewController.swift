@@ -27,9 +27,9 @@ class ViewController: UIViewController {
         }
         newMessage = true
     }
-    
+    private var brain = CalculatorBrain()
     @IBAction func operation(_ sender: UIButton) {
-        let symbol = sender.currentTitle!
+      /*  let symbol = sender.currentTitle!
         
         if (symbol == "π"){
             display!.text = String(M_PI)
@@ -38,6 +38,15 @@ class ViewController: UIViewController {
             display!.text = String(sqrt(Double(display!.text!)!))
         }
         newMessage = false
+ */
+        if (newMessage == true){
+            brain.setOperand(operand: Double(display!.text!)!)
+            newMessage = false
+        }
+        if let mathSymbol = sender.currentTitle {
+            brain.performeOperation(symbol: mathSymbol)
+        }
+        display!.text = String(brain.result)
     }
   
     override func viewDidLoad() {
