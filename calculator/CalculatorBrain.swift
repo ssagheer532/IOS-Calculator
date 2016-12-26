@@ -15,6 +15,7 @@ func multiply(op1: Double, op2: Double) -> Double {
 class CalculatorBrain {
     private var accumulator = 0.0
     func setOperand(operand: Double){
+        
         accumulator = operand
     }
     
@@ -24,7 +25,8 @@ class CalculatorBrain {
         "√" : Operation.unaryOperation(sqrt),
         "cos" : Operation.unaryOperation(cos),
         "x" : Operation.BinaryOperation(multiply),
-        "=" : Operation.Equals
+        "=" : Operation.Equals,
+       // "." : Operation.Decimal
         
     ]
     enum Operation {
@@ -33,6 +35,7 @@ class CalculatorBrain {
         case unaryOperation((Double) -> Double)
         case BinaryOperation((Double, Double) -> Double)
         case Equals
+        //case Decimal
     }
     
     func performeOperation(symbol: String){
@@ -45,6 +48,8 @@ class CalculatorBrain {
                 if pending != nil {
                     accumulator = pending!.binaryFunction(pending!.firstOp, accumulator)
                 }
+           // case .Decimal: break//concat stuff together
+                
             }
         }
     }
