@@ -24,7 +24,8 @@ class CalculatorBrain {
         "e" : Operation.Constant(M_E),
         "√" : Operation.unaryOperation(sqrt),
         "cos" : Operation.unaryOperation(cos),
-        "x" : Operation.BinaryOperation(multiply),
+       // "x" : Operation.BinaryOperation(multiply),
+        "x" : Operation.BinaryOperation({$1 * $0}),//$1 and $0 are default arguments and swift knows this returns a double becuse of the enum below
         "=" : Operation.Equals,
        // "." : Operation.Decimal
         
@@ -43,15 +44,22 @@ class CalculatorBrain {
             switch operation {
             case .Constant(let value): accumulator = value
             case .unaryOperation(let function): accumulator = function(accumulator)
-            case .BinaryOperation(let function): pending = PendingInfo(binaryFunction: function, firstOp: accumulator)
+            case .BinaryOperation(let function):
+                executePending()//this lets you use more than two numbers for an operation
+                pending = PendingInfo(binaryFunction: function, firstOp: accumulator)
             case .Equals:
-                if pending != nil {
-                    accumulator = pending!.binaryFunction(pending!.firstOp, accumulator)
-                }
+                executePending()
            // case .Decimal: break//concat stuff together
                 
             }
         }
+    }
+    
+    func executePending(){
+        if pending != nil {
+            accumulator = pending!.binaryFunction(pending!.firstOp, accumulator)
+        }
+    
     }
     private var pending: PendingInfo?
     struct PendingInfo{

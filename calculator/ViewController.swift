@@ -11,8 +11,12 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
+  
     var newMessage = false
     
+    @IBOutlet weak var display2: UILabel!
+    
+    var end = false
     
     @IBAction func temp(_ sender: UIButton) {
         let digit = sender.currentTitle!
@@ -25,6 +29,11 @@ class ViewController: UIViewController {
         else {
             display!.text = digit
         }
+        if end == true{
+            display2!.text = ""
+            end = false
+        }
+        display2!.text = display2!.text! + " " + display!.text! +  " "
         newMessage = true
     }
     private var brain = CalculatorBrain()
@@ -39,6 +48,9 @@ class ViewController: UIViewController {
         }
         newMessage = false
  */
+        
+        display2!.text = display2!.text!  + sender.currentTitle!
+
         if (newMessage == true){
             brain.setOperand(operand: Double(display!.text!)!)
             newMessage = false
@@ -47,6 +59,10 @@ class ViewController: UIViewController {
             brain.performeOperation(symbol: mathSymbol)
         }
         display!.text = String(brain.result)
+        if (sender.currentTitle! == "="){
+            display2!.text = display!.text
+            end = true
+        }
     }
   
     override func viewDidLoad() {
