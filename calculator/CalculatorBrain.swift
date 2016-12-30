@@ -29,8 +29,7 @@ class CalculatorBrain {
         "+" : Operation.BinaryOperation({$1 + $0}),//$1 and $0 are default
         "-" : Operation.BinaryOperation({$0 - $1}),//$1 and $0 are default
         "±" : Operation.unaryOperation({0-$0}),//bug at unary operation
-        "/" : Operation.BinaryOperation({$1 / $0}),//$1 and $0 are default
-
+        "/" : Operation.BinaryOperation({$0 / $1}),//$1 and $0 are default
         "=" : Operation.Equals,
         
     ]
@@ -75,13 +74,6 @@ class CalculatorBrain {
     
     
     var result: Double {
-//        print(accumulator)
-
-        let answer = accumulator
-        accumulator = 0
-        //print(accumulator)
-
-            return answer
-        
+        return accumulator
     }
 }

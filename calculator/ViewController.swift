@@ -19,12 +19,12 @@ class ViewController: UIViewController {
     var end = false
     var afterDecimal = false
     @IBAction func temp(_ sender: UIButton) {
-        if end == true {
+        if end == true && newComputation == true{
             display2!.text = ""
             display!.text = ""
             end = false
         }
-        
+        newComputation = false
         
         let digit = sender.currentTitle!
         // var newMessage = false
@@ -48,18 +48,27 @@ class ViewController: UIViewController {
             newMessage = true
             afterDecimal = true
         }
+            
+        else if middleOfTyping == true {
+            display2!.text?.remove(at: (display2!.text!.index(before: display2!.text!.endIndex) ))//removes extra space
+            display2!.text = display2!.text! + sender.currentTitle! +  " "
+            newMessage = true
+        }
         else {
+            
             display2!.text = display2!.text! + " " + display!.text! +  " "
             newMessage = true
         }
+        middleOfTyping = true
         
     }
+    var newComputation = true
+    var middleOfTyping = false
     private var brain = CalculatorBrain()
     @IBAction func operation(_ sender: UIButton) {
-        
-        
-        display2!.text = display2!.text!  + sender.currentTitle!
-        
+        newComputation = false
+
+        middleOfTyping = false
         if (newMessage == true){
             brain.setOperand(operand: Double(display!.text!)!)
             newMessage = false
@@ -69,11 +78,23 @@ class ViewController: UIViewController {
         }
         display!.text = String(brain.result)//this may cause issues
         if (sender.currentTitle! == "="){
-            display2!.text = display!.text
+            display2!.text = display!.text! + " "
             end = true
+            newComputation = true
         }
-        //print(display!.text!)
-
+        else{
+            if sender.currentTitle! == "±"{
+                var temp = display2!.text?.components(separatedBy: " ")
+                //print(temp?[(temp?.count)! - 2])
+                //print(display2!.text)
+                temp?[(temp?.count)! - 2] = "-" + (temp?[(temp?.count)! - 2])!
+               // print(temp?[(temp?.count)! - 2])
+                display2!.text = temp?.joined(separator: " ")
+            }
+            else{
+            display2!.text = display2!.text!  + sender.currentTitle!
+            }
+        }
     }
     
     override func viewDidLoad() {
