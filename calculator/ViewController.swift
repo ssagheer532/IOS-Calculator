@@ -11,14 +11,21 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
-  
+    
     var newMessage = false
     
     @IBOutlet weak var display2: UILabel!
     
     var end = false
-    
+    var afterDecimal = false
     @IBAction func temp(_ sender: UIButton) {
+        if end == true {
+            display2!.text = ""
+            display!.text = ""
+            end = false
+        }
+        
+        
         let digit = sender.currentTitle!
         // var newMessage = false
         
@@ -29,28 +36,30 @@ class ViewController: UIViewController {
         else {
             display!.text = digit
         }
-        if end == true{
-            display2!.text = ""
-            end = false
+        
+        if afterDecimal == true {
+            display2!.text = display2!.text! + sender.currentTitle! + " "
+            afterDecimal = false
         }
-        display2!.text = display2!.text! + " " + display!.text! +  " "
-        newMessage = true
+        else if sender.currentTitle! == "." {
+           display2!.text?.remove(at: (display2!.text!.index(before: display2!.text!.endIndex) ))//removes extra space
+            display2!.text = display2!.text! + sender.currentTitle!
+
+            newMessage = true
+            afterDecimal = true
+        }
+        else {
+            display2!.text = display2!.text! + " " + display!.text! +  " "
+            newMessage = true
+        }
+        
     }
     private var brain = CalculatorBrain()
     @IBAction func operation(_ sender: UIButton) {
-      /*  let symbol = sender.currentTitle!
         
-        if (symbol == "π"){
-            display!.text = String(M_PI)
-        }
-        else if (symbol == "√"){
-            display!.text = String(sqrt(Double(display!.text!)!))
-        }
-        newMessage = false
- */
         
         display2!.text = display2!.text!  + sender.currentTitle!
-
+        
         if (newMessage == true){
             brain.setOperand(operand: Double(display!.text!)!)
             newMessage = false
@@ -58,13 +67,15 @@ class ViewController: UIViewController {
         if let mathSymbol = sender.currentTitle {
             brain.performeOperation(symbol: mathSymbol)
         }
-        display!.text = String(brain.result)
+        display!.text = String(brain.result)//this may cause issues
         if (sender.currentTitle! == "="){
             display2!.text = display!.text
             end = true
         }
+        //print(display!.text!)
+
     }
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

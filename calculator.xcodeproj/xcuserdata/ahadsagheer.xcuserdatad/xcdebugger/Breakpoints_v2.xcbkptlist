@@ -9,75 +9,44 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "calculator/ViewController.swift"
-            timestampString = "504568489.915405"
+            filePath = "calculator/CalculatorBrain.swift"
+            timestampString = "504740204.669741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "temp(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "calculator/ViewController.swift"
-            timestampString = "504332146.57875"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "ViewController"
-            landmarkType = "3">
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "operations"
+            landmarkType = "24">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "calculator.ViewController.display.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UILabel&gt;"
+                  symbolName = "calculator.CalculatorBrain.init () -&gt; calculator.CalculatorBrain"
                   moduleName = "calculator"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ahadsagheer/Desktop/calculator/calculator/ViewController.swift"
-                  timestampString = "504332477.143623"
+                  urlString = "file:///Users/ahadsagheer/Desktop/calculator/calculator/CalculatorBrain.swift"
+                  timestampString = "504740488.494506"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "47">
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "386">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "calculator.ViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; calculator.ViewController"
+                  symbolName = "calculator.CalculatorBrain.(operations : Swift.Dictionary&lt;Swift.String, calculator.CalculatorBrain.Operation&gt;).(variable initialization expression).(closure #2)"
                   moduleName = "calculator"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ahadsagheer/Desktop/calculator/calculator/ViewController.swift"
-                  timestampString = "504332477.146428"
+                  urlString = "file:///Users/ahadsagheer/Desktop/calculator/calculator/CalculatorBrain.swift"
+                  timestampString = "504740488.498547"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "77">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "calculator.ViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;calculator.ViewController&gt;"
-                  moduleName = "calculator"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ahadsagheer/Desktop/calculator/calculator/ViewController.swift"
-                  timestampString = "504332477.148835"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "37">
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "26">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -89,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "calculator/ViewController.swift"
-            timestampString = "504568489.915405"
+            timestampString = "504739829.557409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "operation(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -104,12 +73,28 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "calculator/CalculatorBrain.swift"
-            timestampString = "504672232.905992"
+            filePath = "calculator/ViewController.swift"
+            timestampString = "504739631.180941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "temp(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "calculator/CalculatorBrain.swift"
+            timestampString = "504740465.495071"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "operations"
             landmarkType = "24">
          </BreakpointContent>
