@@ -83,13 +83,20 @@ class ViewController: UIViewController {
             newComputation = true
         }
         else{
-            if sender.currentTitle! == "±"{
+            if sender.currentTitle! == "±"{//adds support for neg numbers
                 var temp = display2!.text?.components(separatedBy: " ")
                 //print(temp?[(temp?.count)! - 2])
                 //print(display2!.text)
                 temp?[(temp?.count)! - 2] = "-" + (temp?[(temp?.count)! - 2])!
                // print(temp?[(temp?.count)! - 2])
                 display2!.text = temp?.joined(separator: " ")
+            }
+            else if sender.currentTitle! == "√"{//adds support for square root 
+                var temp = display2!.text?.components(separatedBy: " ")
+                temp?[(temp?.count)! - 2] = display.text!
+                // print(temp?[(temp?.count)! - 2])
+                display2!.text = temp?.joined(separator: " ")
+                
             }
             else{
             display2!.text = display2!.text!  + sender.currentTitle!
