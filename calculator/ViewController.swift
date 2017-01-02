@@ -15,11 +15,16 @@ class ViewController: UIViewController {
     var newMessage = false
     
     @IBOutlet weak var display2: UILabel!
-    
+    var deccimalEntered = false
     var end = false
     var afterDecimal = false
     @IBAction func temp(_ sender: UIButton) {
-        if end == true && newComputation == true{
+        
+        if deccimalEntered == true && sender.currentTitle == "."{
+            return
+        }
+        
+        if end == true && newComputation == true {
             display2!.text = ""
             display!.text = ""
             end = false
@@ -42,6 +47,9 @@ class ViewController: UIViewController {
             afterDecimal = false
         }
         else if sender.currentTitle! == "." {
+            
+            
+        deccimalEntered = true
            display2!.text?.remove(at: (display2!.text!.index(before: display2!.text!.endIndex) ))//removes extra space
             display2!.text = display2!.text! + sender.currentTitle!
 
@@ -54,6 +62,7 @@ class ViewController: UIViewController {
             display2!.text = display2!.text! + sender.currentTitle! +  " "
             newMessage = true
         }
+            
         else {
             
             display2!.text = display2!.text! + " " + display!.text! +  " "
@@ -66,6 +75,14 @@ class ViewController: UIViewController {
     var middleOfTyping = false
     private var brain = CalculatorBrain()
     @IBAction func operation(_ sender: UIButton) {
+        
+        deccimalEntered = false
+
+       if end == true && (sender.currentTitle! == "e" || sender.currentTitle! == "π") {//fixes display bug
+           display2!.text = ""
+            display!.text = ""
+            end = false
+       }
         newComputation = false
 
         middleOfTyping = false
@@ -76,12 +93,13 @@ class ViewController: UIViewController {
         if let mathSymbol = sender.currentTitle {
             brain.performeOperation(symbol: mathSymbol)
         }
-        display!.text = String(brain.result)//this may cause issues
+        display!.text = String(brain.result) //this may cause issues
         if (sender.currentTitle! == "="){
             display2!.text = display!.text! + " "
             end = true
             newComputation = true
         }
+            
         else{
             if sender.currentTitle! == "±"{//adds support for neg numbers
                 var temp = display2!.text?.components(separatedBy: " ")
@@ -91,16 +109,26 @@ class ViewController: UIViewController {
                // print(temp?[(temp?.count)! - 2])
                 display2!.text = temp?.joined(separator: " ")
             }
-            else if sender.currentTitle! == "√"{//adds support for square root 
-                var temp = display2!.text?.components(separatedBy: " ")
+            else if sender.currentTitle! == "√" {//adds support for square root
+                var temp = display2!.text?.components(separatedBy: " ")//temp is the array with each space seperated word in each index
                 temp?[(temp?.count)! - 2] = display.text!
                 // print(temp?[(temp?.count)! - 2])
                 display2!.text = temp?.joined(separator: " ")
                 
             }
+            else if sender.currentTitle! == "e" || sender.currentTitle! == "π" {
+                display2!.text = display2!.text!  + " " + sender.currentTitle! + " "
+                end = false
+                
+            }
             else{
             display2!.text = display2!.text!  + sender.currentTitle!
+                end = false
             }
+        }
+        if display!.text == "nan" || display!.text == "inf"{
+            end = true
+            newComputation = true
         }
     }
     
