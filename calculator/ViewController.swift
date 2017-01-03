@@ -134,8 +134,59 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        equalsButton.layer.cornerRadius = 12
+        plus_minusButton.layer.cornerRadius = 12
+        button1.layer.cornerRadius = 12
+        button2.layer.cornerRadius = 12
+        button3.layer.cornerRadius = 12
+        button4.layer.cornerRadius = 12
+        button5.layer.cornerRadius = 12
+        button6.layer.cornerRadius = 12
+        button7.layer.cornerRadius = 12
+        button8.layer.cornerRadius = 12
+        button9.layer.cornerRadius = 12
+        button0.layer.cornerRadius = 12
+        
+        buttonMultiply.layer.cornerRadius = 12
+        buttonDivide.layer.cornerRadius = 12
+        buttonSubtract.layer.cornerRadius = 12
+        buttonAdd.layer.cornerRadius = 12
+        buttonDecimal.layer.cornerRadius = 12
+        buttonE.layer.cornerRadius = 12
+        buttonPi.layer.cornerRadius = 12
+        buttonSqr.layer.cornerRadius = 12
+
+        
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    
+    @IBOutlet weak var equalsButton: UIButton!
+    @IBOutlet weak var plus_minusButton: UIButton!
+    
+    @IBOutlet weak var buttonMultiply: UIButton!
+    @IBOutlet weak var buttonDivide: UIButton!
+    @IBOutlet weak var buttonSubtract: UIButton!
+    @IBOutlet weak var buttonAdd: UIButton!
+    @IBOutlet weak var buttonDecimal: UIButton!
+    @IBOutlet weak var buttonE: UIButton!
+    @IBOutlet weak var buttonPi: UIButton!
+    @IBOutlet weak var buttonSqr: UIButton!
+    
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var button5: UIButton!
+    @IBOutlet weak var button6: UIButton!
+    @IBOutlet weak var button7: UIButton!
+    @IBOutlet weak var button8: UIButton!
+    @IBOutlet weak var button9: UIButton!
+    @IBOutlet weak var button0: UIButton!
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
