@@ -156,7 +156,8 @@ class ViewController: UIViewController {
         buttonPi.layer.cornerRadius = 12
         buttonSqr.layer.cornerRadius = 12
 
-        
+        self.navigationController?.isNavigationBarHidden = true
+
         
         
         // Do any additional setup after loading the view, typically from a nib.
