@@ -5,5 +5,6 @@ Basic calculator made while learning Swift and Xcode
 - [x] Add buttons 
 - [X] Show current input in display
 - [X] Fix user errors (ex. if user adds two decimal points)
-- [ ] Make calculator work horizontally 
+- [X] Make calculator work horizontally 
 - [X] Make the app more physically appealing
+- [ ] Clean up code
